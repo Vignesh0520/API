@@ -1,0 +1,31 @@
+SQL
+=====
+
+Table 1: Table_name Student_Details
+					================
+					
+student_id	student_name	course_id
+==========  ============    =========
+221003106	Vignesh Raja	101
+221002070	Raghavan		102
+221001036	Saravanan		103
+221004001	Viswa			NULL
+
+CREATE TABLE Student_Details ( student_id NUMBER(10), student_name VARCHAR2(50), course_id NUMBER(5), 
+CONSTRAINT s1 PRIMARY KEY (student_id))
+
+INSERT INTO Student_Details (student_id, student_name, course_id) VALUES (221003106, 'Vignesh Raja', 101)
+
+INSERT INTO Student_Details (student_id, student_name, course_id) VALUES (221002070, 'Raghavan', 102)
+
+INSERT INTO Student_Details (student_id, student_name, course_id) VALUES (221001036, 'Saravanan', 103)
+
+INSERT INTO Student_Details (student_id, student_name, course_id) VALUES (221004001, 'Viswa', NULL)
+
+To delete the created table
+===========================
+DROP TABLE Student_Details; 
+
+
+
+
