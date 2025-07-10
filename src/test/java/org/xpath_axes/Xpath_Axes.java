@@ -11,6 +11,8 @@ public class Xpath_Axes {
 	
 	public static void main(String[] args) {
 		
+		// Sample program for usage of all XPath Axes
+		
 		WebDriver driver = new ChromeDriver();
 		driver.navigate().to("https://demo.automationtesting.in/Register.html");
 		driver.manage().window().maximize();
@@ -31,6 +33,12 @@ public class Xpath_Axes {
 		// preceding-sibling
 		String xpath5 = "(//input[@value='Male']//..//..//..//preceding-sibling::div)[position()=4]//input";
 		
+		// descendant
+		String xpath6 = "//div[@class='form-group']/descendant::input[@value='Male']";
+		
+		// combination of ancestor and descendant
+		String xpath7 = "//input[@value='Cricket']/ancestor::div[@class='col-md-4 col-xs-4 col-sm-4']/descendant::input[@value='Movies']";
+		
 		WebElement firstName = driver.findElement(By.xpath(xpath1));
 		firstName.sendKeys("Vignesh");
 		
@@ -45,7 +53,13 @@ public class Xpath_Axes {
 		email.sendKeys("vigneshraja0520@gmail.com");
 		
 		WebElement phone = driver.findElement(By.xpath(xpath5));
-		phone.sendKeys("7094772888");	
+		phone.sendKeys("7094772888");
+		
+		WebElement gender_Male = driver.findElement(By.xpath(xpath6));
+		gender_Male.click();
+		
+		WebElement hobby_Movies = driver.findElement(By.xpath(xpath7));
+		hobby_Movies.click();
 		
 	}
 
