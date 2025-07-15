@@ -13,6 +13,7 @@ public class StringReverse {
 		String name = "Raja Muthuvijayan";
 		String reversedString = "";
 		int length = name.length();
+
 		for(int i = length-1; i>=0; i--) {
 			reversedString = reversedString + name.charAt(i);
 		}
@@ -22,6 +23,7 @@ public class StringReverse {
 
 }
 
+
 OUTPUT :
 ========
 
@@ -30,3 +32,260 @@ Reversed String : nayajivuhtuM ajar
 
 ============================================================================================================================================================
 
+2. Reverses the letters of each word in a given string
+======================================================
+
+ReverseLettersInAString.java
+============================
+
+package org.logical_programs;
+
+public class ReverseLettersInAString {
+	
+	public static void main(String[] args) {
+	
+		String s = "Shanmugha Arts, Science, Technology & Research Academy";
+		String reversedString = "";
+		
+		// Split the input string into words using space as delimiter
+		String[] subStrings = s.split(" ");
+		
+		// Iterate through each word
+		for(int i=0; i<subStrings.length; i++) {
+			
+			String str = subStrings[i];
+			
+			// Reverse the current word and append to reversedString
+			for(int j=str.length()-1; j>=0; j--) {
+				reversedString = reversedString + str.charAt(j);
+			}
+			
+			// Add a space after each reversed word
+			reversedString = reversedString + " ";
+			
+		}
+		
+		// Remove any leading/trailing spaces
+		String trim = reversedString.trim();
+		reversedString = trim;
+
+		System.out.println("Actual String : "+s);
+		System.out.println("Reversed String : "+reversedString);
+		
+	}
+
+}
+
+OUTPUT :
+========
+
+Actual String : Shanmugha Arts, Science, Technology & Research Academy
+Reversed String : ahgumnahS ,strA ,ecneicS ygolonhceT & hcraeseR ymedacA
+
+===========================================================================================================================================================
+
+3. swap two numbers without using a third variable
+==================================================
+
+SwapTwoNumbersWithoutUsingThirdVariable.java
+============================================
+
+package org.logical_programs;
+
+public class SwapTwoNumbersWithoutUsingThirdVariable {
+
+	public static void main(String[] args) {
+		
+		int num1 = 70;
+		int num2 = 94;
+		
+		System.out.println("Before Swapping : "+"num1 = "+num1+" num2 = "+num2);
+		
+		num1 = num1 + num2; // num1 = 70 + 94 = 164
+		num2 = num1 - num2;	// num2 = 164 - 94 = 70
+		num1 = num1 - num2;	// num1 = 164 - 70 = 94
+		
+		System.out.println("After Swapping : "+"num1 = "+num1+" num2 = "+num2);
+		
+	}
+}
+
+OUTPUT :
+========
+
+Before Swapping : num1 = 70 num2 = 94
+After Swapping : num1 = 94 num2 = 70
+
+===========================================================================================================================================================
+
+4. checks if a given string is a palindrome
+===========================================
+
+IsPalindrome.java
+=================
+
+package org.logical_programs;
+
+public class IsPalindrome {
+	public static void main(String[] args) {
+		String actualString = "Radar";
+		String reversedString = "";
+
+		// Convert input to lowercase for case-insensitive comparison
+		String s = actualString.toLowerCase();
+
+		// Reverse the string
+		for (int i = s.length() - 1; i >= 0; i--) {
+			reversedString = reversedString + s.charAt(i);
+		}
+
+		if (s.equals(reversedString)) {
+			System.out.println(actualString + " is a palindrome.");
+		} else {
+			System.out.println(actualString + " is not a palindrome.");
+		}
+	}
+}
+
+OUTPUT :
+========
+
+Radar is a palindrome.
+
+===========================================================================================================================================================
+
+5. Find the second largest element in the given unsorted array
+===============================================================
+
+SecondLargestElementInAnArray.java
+==================================
+
+package org.logical_programs;
+
+import java.util.Arrays;
+
+public class SecondLargestElementInAnArray {
+	
+	public static void main(String[] args) {
+		// Initialize the array
+		int array[] = { 70, 94, 77, 28, 88 };
+
+		// Sort the array in ascending order using bubble sort
+		for (int i = 0; i < array.length - 1; i++) {
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[i] > array[j]) {
+					int temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+			}
+		}
+
+		// Print the sorted array, largest element and second largest element
+		System.out.println("Sorted array = " + Arrays.toString(array));
+		System.out.println("First Largest Element = " + array[array.length - 1]);
+		System.out.println("Second Largest Element = " + array[array.length - 2]);
+	}
+}
+
+OUTPUT :
+========
+
+Sorted array = [28, 70, 77, 88, 94]
+First Largest Element = 94
+Second Largest Element = 88
+
+===========================================================================================================================================================
+
+6. Remove duplicate letters from the string
+============================================
+
+RemoveDuplicateLettersFromTheString.java
+=========================================
+
+package org.logical_programs;
+
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+
+public class RemoveDuplicateLettersFromTheString {
+
+	public static void main(String[] args) {
+
+		String actualString = "Capgemini Engineering";
+
+		String str = actualString.toLowerCase();
+
+		char[] charArray = str.toCharArray();
+
+		System.out.println("Actual String : \n" + Arrays.toString(charArray));
+
+		// Use LinkedHashSet to maintain insertion order and remove duplicates
+		LinkedHashSet<Character> set = new LinkedHashSet<Character>();
+
+		// Add each character to the set (duplicates will be ignored)
+		for (char character : charArray) {
+			set.add(character);
+		}
+
+		System.out.println("String after removing the duplicate letters : \n" + set);
+
+	}
+
+}
+
+OUTPUT : 
+=========
+
+Actual String : 
+[c, a, p, g, e, m, i, n, i,  , e, n, g, i, n, e, e, r, i, n, g]
+String after removing the duplicate letters : 
+[c, a, p, g, e, m, i, n,  , r]
+
+===========================================================================================================================================================
+
+7. Find the count of each letter occurrence in given string
+===========================================================
+
+CountOfEachLetterOccurrence.java
+================================
+
+package org.logical_programs;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class CountOfEachLetterOccurrence {
+	public static void main(String[] args) {
+		String s = "Capgemini Engineering";
+		s = s.toLowerCase();
+		System.out.println("Given String : " + s);
+
+		// LinkedHashMap to maintain insertion order of characters
+		Map<Character, Integer> eachLettersCount = new LinkedHashMap<Character, Integer>();
+
+		for (int i = 0; i < s.length(); i++) {
+			char charAt = s.charAt(i);
+			if (charAt != ' ') { // Ignore spaces
+				// If character already exists in map, increment its count
+				if (eachLettersCount.containsKey(charAt)) {
+					Integer count = eachLettersCount.get(charAt);
+					count++;
+					eachLettersCount.put(charAt, count);
+				} else {
+					// If character does not exist, add it with count 1
+					eachLettersCount.put(charAt, 1);
+				}
+			}
+		}
+		System.out.println("Count of each letter occurrence in String : " + eachLettersCount);
+	}
+}
+
+OUTPUT :
+========
+
+Given String : capgemini engineering
+Count of each letter occurrence in String : {c=1, a=1, p=1, g=3, e=4, m=1, i=4, n=4, r=1}
+
+===========================================================================================================================================================
