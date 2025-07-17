@@ -1,3 +1,22 @@
+Logical Programs
+================
+
+1. Reverse a given string
+2. Reverse the letters of each word in a string
+3. Swap two numbers without using a third variable
+4. Check if a given string is a palindrome
+5. Find the second largest element in an unsorted array
+6. Remove duplicate characters from a string
+7. Count the occurrence of each character in a string
+8. Check if two strings are anagrams
+9. Reverse a given number
+10. Remove special characters from a string
+11. String manipulation: Example: string1 = "Vignesh", string2 = "Raja" → result = "VRiagjnaesh"
+12. Move all zeros to the left side of an array
+13. Move all zeros to the right side of an array
+
+============================================================================================================================================================
+
 1. String Reverse
 =================
 
@@ -287,5 +306,249 @@ OUTPUT :
 
 Given String : capgemini engineering
 Count of each letter occurrence in String : {c=1, a=1, p=1, g=3, e=4, m=1, i=4, n=4, r=1}
+
+===========================================================================================================================================================
+
+8. Checks if a given string is a anagram
+=========================================
+
+IsAnagram.java
+==============
+
+package org.logical_programs;
+import java.util.Arrays;
+
+public class IsAnagram {
+	public static void main(String[] args) {
+		String str1 = "listen";
+		String str2 = "silent";
+
+		if (str1.length() != str2.length()) {
+			System.out.println(str1 + " and " + str2 + " are Not an Anagram");
+			return;
+		} else {
+			// If lengths are equal, proceed to check for anagrams
+			// Convert strings to character arrays and sort them
+			char[] charArray1 = str1.toCharArray();
+			char[] charArray2 = str2.toCharArray();
+			
+			// Sort the character arrays
+			Arrays.sort(charArray1);
+			Arrays.sort(charArray2);
+			
+			// Compare the sorted character arrays
+			if (Arrays.equals(charArray1, charArray2)) {
+				System.out.println(str1 + " and " + str2 + " are Anagram");
+			} else {
+				System.out.println(str1 + " and " + str2 + " are Not an Anagram");
+			}
+		}
+	}
+}
+
+OUTPUT :
+========
+
+listen and silent are Anagram
+
+===========================================================================================================================================================
+
+9. Reverse the number
+=====================
+
+NumberReverse.java
+==================
+
+package org.logical_programs;
+
+public class NumberReverse {
+
+	public static void main(String[] args) {
+
+		int number = 94427;
+		int reminder = 0;
+		int reversedNumber = 0;
+		System.out.println("Given number is " + number);
+
+		while (number > 0) {
+			reminder = number % 10;
+			reversedNumber = (reversedNumber * 10) + reminder;
+			number = number / 10;
+		}
+
+		System.out.println("Reversed number is " + reversedNumber);
+
+	}
+
+}
+
+OUTPUT :
+========
+
+Given number is 94427
+Reversed number is 72449
+
+===========================================================================================================================================================
+
+10. Remove special characters from a string
+===========================================
+
+RemoveSpecialCharactersFromString.java
+======================================
+
+package org.logical_programs;
+
+public class RemoveSpecialCharactersFromString {
+
+	public static void main(String[] args) {
+		String s = "Viges#hRa@ja@05%20";
+		String result1 = "";
+
+		// Approach 1: Using Regular Expression to remove all characters except letters and digits
+		// [^A-Za-z0-9] matches any character that is NOT a letter or digit
+		
+		String result2 = s.replaceAll("[^A-Za-z0-9]", "");
+		System.out.println("Approach 1 - Result : " + result2);
+
+		// Approach 2: Using loop and Character class methods
+		
+		for (int i = 0; i < s.length(); i++) {
+			char charAt = s.charAt(i);
+			if (Character.isLetter(charAt)) {
+				result1 = result1 + charAt;
+			} else if (Character.isDigit(charAt)) {
+				result1 = result1 + charAt;
+			}
+		}
+		System.out.println("Approach 2 - Result : " + result1);
+	}
+}
+
+OUTPUT :
+========
+
+Approach 1 - Result : VigeshRaja0520
+Approach 2 - Result : VigeshRaja0520
+
+===========================================================================================================================================================
+
+11. String manipulation: Example: string1 = "Vignesh", string2 = "Raja" → result = "VRiagjnaesh"
+================================================================================================
+
+StringManipulation.java
+=======================
+
+package org.logical_programs;
+
+public class StringManipulation {
+
+	public static void main(String[] args) {
+
+		String string1 = "Vignesh";
+		String string2 = "Raja"; // Expected output : VRiagjnaesh
+		int maxLength = 0;
+		String result = "";
+
+		if (string1.length() > string2.length()) {
+			maxLength = string1.length();
+		} else {
+			maxLength = string2.length();
+		}
+
+		for (int i = 0; i < maxLength; i++) {
+
+			if (i < string1.length()) {
+				result = result + string1.charAt(i);
+			}
+
+			if (i < string2.length()) {
+				result = result + string2.charAt(i);
+			}
+		}
+		System.out.println("Result = " + result);
+	}
+}
+
+OUTPUT :
+========
+
+Result = VRiagjnaesh
+
+===========================================================================================================================================================
+
+12. Move all zeros to the left side of an array
+===============================================
+
+MoveZerosToLeft.java
+====================
+
+package org.logical_programs;
+
+import java.util.Arrays;
+
+public class MoveZerosToLeft {
+	public static void main(String[] args) {
+
+		int[] a = { 7, 0, 9, 4, 0, 0, 7, 0, 7, 2, 8, 8, 0, 8 };
+
+		// Expected output b = {0, 0, 0, 0, 0, 7, 9, 4, 7, 7, 2, 8, 8, 8};
+
+		int b[] = new int[a.length];
+		int count = 0;
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] == 0) {
+				count++;
+			}
+		}
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] != 0) {
+				b[count++] = a[i];
+			}
+		}
+		System.out.println("Result = "+Arrays.toString(b));
+	}
+}
+
+OUTPUT :
+========
+
+Result = [0, 0, 0, 0, 0, 7, 9, 4, 7, 7, 2, 8, 8, 8]
+
+===========================================================================================================================================================
+
+13. Move all zeros to the right side of an array
+================================================
+
+MoveZerosToRight.java
+=====================
+
+package org.logical_programs;
+
+import java.util.Arrays;
+
+public class MoveZerosToRight {
+
+	public static void main(String[] args) {
+
+		int[] a = { 7, 0, 9, 4, 0, 0, 7, 0, 7, 2, 8, 8, 0, 8 };
+
+		// Expected output b = {7, 9, 4, 7, 7, 2, 8, 8, 8, 0, 0, 0, 0, 0};
+
+		int b[] = new int[a.length];
+		int index = 0;
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] != 0) {
+				b[index] = a[i];
+				index++;
+			}
+		}
+		System.out.println("Result = " + Arrays.toString(b));
+	}
+}
+
+OUTPUT :
+========
+
+Result = [7, 9, 4, 7, 7, 2, 8, 8, 8, 0, 0, 0, 0, 0]
 
 ===========================================================================================================================================================
